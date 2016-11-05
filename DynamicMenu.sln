@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A7F506EA-9FA0-43E5-A529-9DB077B4AB5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E2B39C4-BF06-4211-8AD1-08A993284E6D}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DynamicMenu", "src\DynamicMenu\DynamicMenu.xproj", "{D2408650-BE22-49D9-9E92-81B30C9BD636}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2408650-BE22-49D9-9E92-81B30C9BD636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2408650-BE22-49D9-9E92-81B30C9BD636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2408650-BE22-49D9-9E92-81B30C9BD636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2408650-BE22-49D9-9E92-81B30C9BD636}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2408650-BE22-49D9-9E92-81B30C9BD636} = {A7F506EA-9FA0-43E5-A529-9DB077B4AB5F}
+	EndGlobalSection
+EndGlobal
