@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace DynamicMenu
 {
-    public class Class1
+    public class RestrictedItemMenuModel
     {
-        public Class1()
-        {
-        }
+        public string Action { get; set; }
+        public string Controller { get; set; }
     }
 }

@@ -1,13 +1,32 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.0-beta",
+  "authors": [
+    "Mateus Demboski <mateusdemboski@gmail.com>"
+  ],
+  "title": "DynamicMenu",
+  "description": "Library to help make dynamic menus in ASP.NET Core",
 
-  "dependencies": {
-    "NETStandard.Library": "1.6.0"
+  "packOptions": {
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Controk/DynamicMenu.git"
+    }
   },
 
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.1",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    }
+  },
   "frameworks": {
-    "netstandard1.6": {
+    "netcoreapp1.0": {
       "imports": "dnxcore50"
     }
-  }
+  } 
 }
