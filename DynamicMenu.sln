@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E2B39C4-BF06-4211-8AD1-08A993284E6D}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DynamicMenu", "src\DynamicMenu\DynamicMenu.xproj", "{D2408650-BE22-49D9-9E92-81B30C9BD636}"
