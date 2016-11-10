@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DynamicMenu
 {
@@ -16,5 +18,17 @@ namespace DynamicMenu
         public int Order { get; set; }
 
         public IEnumerable<NavigationModel> Nodes { get; set; }
+
+        public static IEnumerable<NavigationModel> GenerateNavigationModelByFile(string filepath)
+        {
+            IEnumerable<NavigationModel> response = new List<NavigationModel>();
+
+            if (File.Exists(filepath))
+            {
+                response = JsonConvert.DeserializeObject<NavigationModel[]>(File.ReadAllText(filepath));
+            }
+
+            return response;
+        }
     }
 }

@@ -38,14 +38,24 @@ namespace Microsoft.AspNetCore.Mvc
                             ? navigationItem.Nodes.Where(
                                 x =>
                                     DynamicMenuOptions.MenuResctrictions.Any(
-                                        y => y.Controller == x.Controller && y.Action == x.Action))
+                                        y =>
+                                            (
+                                                String.IsNullOrEmpty(x.Area) ||
+                                                y.Area == x.Area
+                                            ) &&
+                                            y.Controller == x.Controller && 
+                                            y.Action == x.Action
+                                    )
+                              )
                             : navigationItem.Nodes;
 
                     var nodeItems = navigationNodeItems.OrderBy(x => x.Order).Select(
                         model => String.Format(
                             DynamicMenuOptions.ItemNodesSkel,
                             model.Title,
-                            urlHelper.Action(model.Action, model.Controller),
+                            String.IsNullOrEmpty(model.Area) ?
+                                urlHelper.Action(model.Action, model.Controller) :
+                                urlHelper.Action(model.Action, model.Controller, new { Area = model.Area }),
                             model.Icon
                         )).ToArray();
 
@@ -53,7 +63,9 @@ namespace Microsoft.AspNetCore.Mvc
                         menuContainer.Append(String.Format(
                             DynamicMenuOptions.ItemMenuWithNodesSkel,
                             navigationItem.Title,
-                            urlHelper.Action(navigationItem.Action, navigationItem.Controller),
+                            String.IsNullOrEmpty(navigationItem.Area) ?
+                                urlHelper.Action(navigationItem.Action, navigationItem.Controller) :
+                                urlHelper.Action(navigationItem.Action, navigationItem.Controller, new { Area = navigationItem.Area }),
                             navigationItem.Icon,
                             DynamicMenuOptions.ArrowIconToItemMenuWithNodes,
                             String.Join("", nodeItems)
@@ -62,13 +74,22 @@ namespace Microsoft.AspNetCore.Mvc
                 else if (
                     DynamicMenuOptions.MenuResctrictions == null ||
                     !DynamicMenuOptions.MenuResctrictions.Any() ||
-                    DynamicMenuOptions.MenuResctrictions.Any(x => x.Controller == navigationItem.Controller && x.Action == navigationItem.Action)
+                    DynamicMenuOptions.MenuResctrictions.Any(
+                        x => 
+                            (
+                                String.IsNullOrEmpty(navigationItem.Area) ||
+                                x.Area == navigationItem.Area
+                            ) && 
+                            x.Controller == navigationItem.Controller && 
+                            x.Action == navigationItem.Action)
                 )
                 {
                     menuContainer.Append(String.Format(
                         DynamicMenuOptions.ItemMenuSkel,
                         navigationItem.Title,
-                        urlHelper.Action(navigationItem.Action, navigationItem.Controller),
+                        String.IsNullOrEmpty(navigationItem.Area) ?
+                                urlHelper.Action(navigationItem.Action, navigationItem.Controller) :
+                                urlHelper.Action(navigationItem.Action, navigationItem.Controller, new { Area = navigationItem.Area }),
                         navigationItem.Icon
                     ));
                 }

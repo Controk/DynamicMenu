@@ -7,6 +7,7 @@ namespace DynamicMenu
 {
     public class RestrictedItemMenuModel
     {
+        public string Area { get; set; }
         public string Action { get; set; }
         public string Controller { get; set; }
     }

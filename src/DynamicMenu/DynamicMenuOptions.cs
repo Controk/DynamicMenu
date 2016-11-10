@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace DynamicMenu
 {
@@ -64,11 +65,6 @@ namespace DynamicMenu
 
         public static IEnumerable<NavigationModel> NavigationModel;
         public static IEnumerable<RestrictedItemMenuModel> MenuResctrictions;
-
-        public DynamicMenuOptions(IEnumerable<NavigationModel> navigationModel, IEnumerable<RestrictedItemMenuModel> menuResctrictions = null)
-        {
-            NavigationModel = navigationModel;
-            MenuResctrictions = menuResctrictions;
-        }
+        public static IDistributedCache Cache;
     }
 }
